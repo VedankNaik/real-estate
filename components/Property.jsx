@@ -28,9 +28,15 @@ const Property = ({
       flexWrap="wrap"
       w="420px"
       p="5"
+      mb="1"
       paddingTop="0px"
       justifyContent="flex-start"
       cursor="pointer"
+      sx={{ transition: "all 0.3s ease-in-out" }}
+      _hover={{
+        transform: "translate3d(0px, -5px, 0px)",
+        boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.5)",
+      }}
     >
       <Box>
         <Image

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Flex, Box, Text, Button } from "@chakra-ui/react";
 
-import Property from '../components/Property';
+import Property from "../components/Property";
 import { baseUrl, fetchApi } from "../utils/fetchApi";
 
 export const Banner = ({
@@ -15,29 +15,37 @@ export const Banner = ({
   linkName,
   imageUrl,
 }) => (
-  <Flex flexWrap="wrap" justifyContent="center" alignItems="center" m="10">
-    <Image src={imageUrl} width={500} height={300} alt="banner" />
-    <Box p="5">
-      <Text color="gray.500" fontSize="sm" fontWeight="medium">
-        {purpose}
-      </Text>
-      <Text fontSize="3xl" fontWeight="bold">
-        {title1}
-        <br />
-        {title2}
-      </Text>
-      <Text fontSize="lg" paddingTop="3" paddingBottom="3" color="gray.700">
-        {desc1}
-        <br />
-        {desc2}
-      </Text>
-      <Button fontSize="xl" bg="blue.300" color="white">
-        <Link legacyBehavior href={linkName}>
-          <a>{buttonText}</a>
-        </Link>
-      </Button>
-    </Box>
-  </Flex>
+  <Box
+    sx={{ transition: "all 0.3s ease-in-out" }}
+    _hover={{
+      transform: "translate3d(0px, -5px, 0px)",
+      boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.5)",
+    }}
+  >
+    <Flex flexWrap="wrap" justifyContent="center" alignItems="center" m="10">
+      <Image src={imageUrl} width={500} height={300} alt="banner" />
+      <Box p="5">
+        <Text color="gray.500" fontSize="sm" fontWeight="medium">
+          {purpose}
+        </Text>
+        <Text fontSize="3xl" fontWeight="bold">
+          {title1}
+          <br />
+          {title2}
+        </Text>
+        <Text fontSize="lg" paddingTop="3" paddingBottom="3" color="gray.700">
+          {desc1}
+          <br />
+          {desc2}
+        </Text>
+        <Button fontSize="xl" bg="blue.300" color="black">
+          <Link legacyBehavior href={linkName}>
+            <a>{buttonText}</a>
+          </Link>
+        </Button>
+      </Box>
+    </Flex>
+  </Box>
 );
 
 export default function Home({ propertiesForSale, propertiesForRent }) {
